@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册</title>
+    <link rel="stylesheet" href="css/reg.css">
+</head>
+<body>
+    <div class="header">
+        <header>
+            <a href="">
+                <img src="https://passport.sfbest.com/images/logo.png" alt="">
+                <span>欢迎注册</span>
+            </a>
+        </header>
+    </div>
+
+    <div class="box">
+         <div class="nav">
+            <span class="geren">个人用户</span>
+            <div class="login">
+                已有账号，立即 <a href="https://passport.sfbest.com?returnUrl=http://sfbest.com/">登录</a>
+            </div>
+        </div>
+    </div>
+   
+    <div class="waibao">
+        <div class="main">
+            <form action="" class="reg" id="form">
+                <li class="user">
+                    <label><font>*</font> 账户名:&nbsp;</label>
+                    <input type="text" id="user" required ="true">
+                    <div id="em1"></div>
+                </li>
+                <li class="psd">
+                    <label><font>*</font> 登录密码:&nbsp;</label>
+                    <input type="password" id="psd" required ="true">
+                    <div id="em2"></div>
+                </li>
+                <li class="okpsd">
+                    <label><font>*</font> 确认密码:&nbsp;</label>
+                    <input type="password" id="yes" required="true">
+                    <div id="em3"></div>
+                </li>
+                <li class="yanzheng">
+                    <label><font>*</font> 验证码:&nbsp;</label>
+                    <input type="text" id="yanzheng" required="true">
+                    <div id="em4"></div>
+                    <img src="https://passport.sfbest.com/validate/?new=0.10240795382995072?new=0.6775239257444214?new=0.012816825558572331?new=0.5122726987340118?new=0.21455529982588306">
+                </li>
+                <li class="gouxuan" >
+                    <span >
+                        <input type="checkbox" checked="" onclick="ckAgree();">
+                        <a href="https://passport.sfbest.com/xy.html" target="_blank" class="checkTitle">我已阅读并同意<font style="font-size:12px;color: #6e9b0c;">《顺丰优选用户注册协议》</font></a>
+                    </span>
+                </li>
+                <li>
+                    <button id="btn">立即注册</button>
+                </li>
+            </form>
+            <p><img src="https://passport.sfbest.com/images/pic10.jpg"></p>
+        <div class="ui-reg-tip">
+                <a href="http://help.sfbest.com/140/6788.html" target="_blank">了解更多&gt;&gt;</a>
+        </div>
+        </div>
+        
+    </div>
+    
+    <div class="footer">
+			<ul>
+                <li><a href="http://www.sfbest.com/www/379/5109.html" rel="nofollow" class="footerlink1">关于我们</a></li> 
+                <li>|</li>
+                <li><a href="http://www.sfbest.com/www/380/5116.html" rel="nofollow" class="footerlink1">联系我们</a></li>
+                <li>|</li>
+                <li><a href="http://www.sfbest.com/www/381/5117.html" rel="nofollow" class="footerlink1">招聘人才</a></li>
+                <li>|</li>
+				<li><a href="http://www.sfbest.com/www/330/2705.html" rel="nofollow" class="footerlink1">友情链接</a></li>
+            </ul>
+			<p> 
+				北京顺丰电子商务有限公司<br>
+                <br>北京市公安局顺义分局备案11011302000890号|
+                <a href="http://www.miibeian.gov.cn" target="_blank" rel="nofollow" class="footerlink1">京ICP备12011349号</a>|<a href="http://www.sfbest.com/www/174/461.html" target="_blank" rel="nofollow" class="footerlink1">企业营业执照</a><br>
+				<br>Copyright© 顺丰优选 sfbest.com 版权所有<br> 
+			</p>
+		</div>
+</body>
+    <script src="script/jquery-1.11.1.min.js"></script>
+    <script src="script/jquery.validate.js"></script>
+    <script src="script/getAjax.js"></script>
+    <script>
+        var oUser = document.getElementById("user");
+        var oPsd = document.getElementById("psd");
+        var oYes = document.getElementById("yes");
+        var oYan =document.getElementById("yanzheng");
+
+        var oEm1 = document.getElementById("em1");
+        var oEm2 = document.getElementById("em2");
+        var oEm3 = document.getElementById("em3");
+        var oEm4 = document.getElementById("em4");
+            var buser = /^[u4e00-\u9fa5]{3,6}$/;
+            oUser.onblur = function(){
+                var sz = oUser.value;
+                    if(buser.test(sz)){
+                        oEm1.style.display="block"
+                    }else{
+                        oEm1.style.display="none"
+                    }
+            }
+            var psd = /^[0-9a-zA-Z\_\+\*\/\-]{6,18}$/;
+            oPsd.onblur = function(){
+                var mm = oPsd.value;
+                    if(psd.test(mm)){
+                        oEm2.style.display="block"
+                    }else{
+                        oEm2.style.display="none"
+                    }
+            }
+
+            var psd1 = /^[0-9a-zA-Z\_\+\*\/\-]{6,18}$/;
+            oYes.onblur = function(){
+                var yes = oYes.value;
+                    if(psd1.test(yes)){
+                        oEm3.style.display="block"
+                    }else{
+                        oEm3.style.display="none"
+                    }
+            }
+            var yan = /^[0-9a-z]{4}$/;
+            oYan.onblur = function(){
+                var yanzhengma = oYan.value;
+                    if(yan.test(yanzhengma)){
+                        oEm4.style.display="block"
+                    }else{
+                        oEm4.style.display="none"
+                    }
+            }
+
+         $.extend($.validator.messages, {
+            required: "这是必填字段",
+            remote: "请修正此字段",
+            email: "请输入有效的电子邮件地址",
+            url: "请输入有效的网址",
+            date: "请输入有效的日期",
+            dateISO: "请输入有效的日期 (YYYY-MM-DD)",
+            number: "请输入有效的数字",
+            digits: "只能输入数字",
+            creditcard: "请输入有效的信用卡号码",
+            equalTo: "你的输入不相同",
+            extension: "请输入有效的后缀",
+            maxlength: $.validator.format("最多可以输入 {0} 个字符"),
+            minlength: $.validator.format("最少要输入 {0} 个字符"),
+            rangelength: $.validator.format("请输入长度在 {0} 到 {1} 之间的字符串"),
+            range: $.validator.format("请输入范围在 {0} 到 {1} 之间的数值"),
+            max: $.validator.format("请输入不大于 {0} 的数值"),
+            min: $.validator.format("请输入不小于 {0} 的数值")
+        });
+        $("#form").validate();
+        
+
+
+        $("#btn").click(function(){
+            var uname=oUser.value;
+            var upwd=oPsd.value;
+            var data="uname="+uname+"&upwd="+upwd;
+            var pro=promiseAjax("http://localhost/1820php/items/php/reg.php",data);
+            pro.then(function(msg){
+               console.log(msg)
+            },function(msg){
+                console.log(msg)
+            })
+        })
+    </script>    
+</html>
